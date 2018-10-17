@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 
 /*
   Generated class for the TranslationProvider provider.
@@ -14,4 +15,8 @@ export class TranslationProvider {
     console.log('Hello TranslationProvider Provider');
   }
 
+  public getTranslation(userInput:string):Observable<any>{
+    let url ="https://api.mymemory.translated.net/get?q="+userInput+"!&langpair=en|it";
+    return this.http.get(url);
+  }
 }
